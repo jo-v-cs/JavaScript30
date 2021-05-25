@@ -58,7 +58,25 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  // Listen for keypress event
+  document.addEventListener("keypress", function(e) {
+    let k = e.key;
+    console.log(`'${ k }' key pressed.`);
+    let drumkeys = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
+    
+    // If key pressed included in drumset
+    if (drumkeys.includes(k))
+    {
+      console.log("Key in drumset");
+    }
+    });
 
+  // Listen for keyup event
+  document.addEventListener("keyup", function(e) {
+    let k = e.key;
+    console.log(`${ k } key released`);
+  });
+  
 </script>
 
 
