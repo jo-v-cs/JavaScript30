@@ -61,19 +61,19 @@
   // Listen for keypress event
   document.addEventListener("keypress", function(e) {
     let k = e.key;
-    console.log(`'${ k }' key pressed.`);
-    console.log(e.keyCode);
-    let drumkeys = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
     
     // Respond with class change
-    if (document.querySelector(`div[data-key="${e.keyCode}]"`))
-      console.log("Key in drumset");
-    });
+    let keyP = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (keyP)
+    {
+      keyP.className += " playing";
+    }
 
-  // Listen for keyup event
-  document.addEventListener("keyup", function(e) {
-    let k = e.key;
-    console.log(`${ k } key released`);
+    // Remove class on keyup
+    document.addEventListener("keyup", function(e) {
+      let k = e.key;
+      keyP.classList.remove('playing');
+    });
   });
 
 </script>
